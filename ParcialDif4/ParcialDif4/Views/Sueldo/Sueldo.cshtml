@@ -1,0 +1,32 @@
+﻿@model ParcialDif4.Models.sueldo
+
+@{
+    ViewBag.Title = "Sueldo";
+}
+
+<h2>Sueldo</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    //Aqui se digitaria las ventas totales
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.ventast, new { @class = "control-label" })
+        @Html.TextBoxFor(Model => Model.ventast, new { @class = "form-control", type = "number" })
+    </div>
+    //Aqui se digitaria el sueldo base
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.sueldob, new { @class = "control-label" })
+        @Html.TextBoxFor(Model => Model.sueldob, new { @class = "form-control", type = "number" })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Calcular" class="btn btn-success" name="command"/>
+    </div>
+}
+<br /><br />
+@if (ViewBag.resultado != null)
+{
+    <p>Resultado:&nbsp;@ViewBag.resultado</p>
+}
+<br /><br />

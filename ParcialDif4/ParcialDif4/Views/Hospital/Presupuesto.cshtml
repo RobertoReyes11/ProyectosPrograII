@@ -1,0 +1,29 @@
+﻿@model ParcialDif4.Models.budget
+@{
+    ViewBag.Title = "Presupuesto";
+}
+
+<h2>Presupuesto</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.presupuesto, new { @class = "control-label" })
+        @Html.TextBoxFor(Model => Model.presupuesto, new { @class = "form-control", type = "number" })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Ginecologia" class="btn btn-success" name="command" />
+        <input type="submit" value="Traumatologia" class="btn btn-success" name="command" />
+        <input type="submit" value="Pediatria" class="btn btn-success" name="command" />
+    </div>
+
+}
+<br /><br />
+@if (ViewBag.resultado != null)
+{
+    <p>Resultado:&nbsp;@ViewBag.resultado</p>
+}
+<br /><br />
